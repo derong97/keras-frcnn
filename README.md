@@ -55,4 +55,24 @@ ISSUES:
 
 - This repo was developed using `python2`. `python3` should work thanks to the contribution of a number of users.
 
-- If you run out of memory, try reducing the number of ROIs that are processed simultaneously. Try passing a lower `-n` to `train_frcnn.py`. Alternatively, try reducing the image size from the default value of 600 (this setting is found in `config.py`.
+- If you run out of memory, try reducing the number of ROIs that are processed simultaneously. Try passing a lower `-n` to `train_frcnn.py`. Alternatively, try reducing the image size from the default value of 600 (this setting is found in `config.py`.'
+
+## Changes made
+* Installed older packages for `h5py` and `tensorflow`. Updated in `requirement.txt`
+* Changed the f-string formatting to older version as my Python version was <= 3.6
+* Corrected errors in `test_frcnn.py`
+
+## Installation
+Followed this [tutorial](https://medium.com/analytics-vidhya/a-practical-implementation-of-the-faster-r-cnn-algorithm-for-object-detection-part-2-with-cac45dada619) for some installation guides.
+1. Create your own train and test sets. RBC images can be taken from this [github](https://github.com/Shenggan/BCCD_Dataset)
+* Make sure you follow the tutorial to generate `annotate.txt`
+2. In your terminal, create an isolated python environment
+* `python -m venv venv`
+* `source venv/bin/activate`
+* `pip install --upgrade pip`
+* `pip install -r requirement.txt`
+3. For quick testing, download the weights [here](https://drive.google.com/file/d/1OmCKlUEYmTjg_jaaN-IQm81eHROU-Gyl/view)
+* Then run `python test_frcnn.py -p dataset/test_images`
+* Results should appear in /results_imgs folder
+4. To train weights, run `python train_frcnn.py -o simple -p annotate.txt`
+* You can pass in other commands such as `--num_epochs`. Read the argument parsers in `train_frcnn.py`
