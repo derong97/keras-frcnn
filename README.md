@@ -63,16 +63,18 @@ ISSUES:
 * Corrected errors in `test_frcnn.py`
 
 ## Installation
-Followed this [tutorial](https://medium.com/analytics-vidhya/a-practical-implementation-of-the-faster-r-cnn-algorithm-for-object-detection-part-2-with-cac45dada619) for some installation guides.
-1. Create your own train and test sets. RBC images can be taken from this [github](https://github.com/Shenggan/BCCD_Dataset)
-* Make sure you follow the tutorial to generate `annotate.txt`
-2. In your terminal, create an isolated python environment
-* `python -m venv venv`
-* `source venv/bin/activate`
-* `pip install --upgrade pip`
-* `pip install -r requirement.txt`
+1. Followed this [tutorial](https://medium.com/analytics-vidhya/a-practical-implementation-of-the-faster-r-cnn-algorithm-for-object-detection-part-2-with-cac45dada619)
+    * Create your own train and test sets. RBC images can be taken from this [github](https://github.com/Shenggan/BCCD_Dataset)
+    * Make sure you are able to generate `annotate.txt`
+2. In your terminal, create an isolated python environment and install required packages
+    ```
+    python -m venv venv
+    source venv/bin/activate
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    ```
 3. For quick testing, download the weights [here](https://drive.google.com/file/d/1OmCKlUEYmTjg_jaaN-IQm81eHROU-Gyl/view)
-* Then run `python test_frcnn.py -p dataset/test_images`
-* Results should appear in /results_imgs folder
+    * Then run `python test_frcnn.py -p dataset/test_images`
+    * Results should appear in /results_imgs folder
 4. To train weights, run `python train_frcnn.py -o simple -p annotate.txt`
-* You can pass in other commands such as `--num_epochs`. Read the argument parsers in `train_frcnn.py`
+    * You can pass in other commands such as `--num_epochs`. Read the argument parsers in `train_frcnn.py`
